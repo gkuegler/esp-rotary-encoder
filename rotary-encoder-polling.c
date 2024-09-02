@@ -133,7 +133,6 @@ re_count_t re_polling_encoder_get_value(re_polling_rotary_encoder_t *this) {
 
 re_count_t re_polling_encoder_get_delta(re_polling_rotary_encoder_t *this) {
 
-  
   return this->delta;
 }
 
@@ -169,6 +168,7 @@ bool re_polling_encoder_sample(re_polling_rotary_encoder_t *this) {
   // In this case there would be no delta between the previous pulse count and
   // the current pulse count to indicate a change.
   if (this->changed) {
+    this->changed = false;
     return true;
   }
 
